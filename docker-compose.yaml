@@ -6,6 +6,5 @@ services:
     ports:
       - "8020:80"
     volumes:
-      - ./web:/var/www/html
+      - ./public:/var/www/html
     working_dir: /var/www/html
-    command: bash -c "git clone https://github.com/XavierChao/OPT_Sprint1_Equip3.git . && apache2ctl -D FOREGROUND"
