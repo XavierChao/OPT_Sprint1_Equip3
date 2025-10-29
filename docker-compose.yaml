@@ -6,9 +6,6 @@ services:
     ports:
       - "8020:80"
     volumes:
-      # Claves SSH del host (solo lectura)
-      - ~/.ssh:/root/.ssh:ro
-      # Donde se guardará el código del repo
       - ./web:/var/www/html
     working_dir: /var/www/html
-    command: bash -c "git clone git@github.com:XavierChao/OPT_Sprint1_Equip3.git . && apache2ctl -D FOREGROUND"
+    command: bash -c "git clone https://github.com/XavierChao/OPT_Sprint1_Equip3.git . && apache2ctl -D FOREGROUND"
