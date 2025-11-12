@@ -208,7 +208,7 @@ button, .btn {
 .espai-digitalitzacio header h1,
 .espai-sostenibilitat header h1,
 .espai-intranet header h1 {
-  color: var(--color-principal);
+  color: var(#fff);
 }
 
 .espai-inici .card,
