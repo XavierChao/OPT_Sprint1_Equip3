@@ -147,7 +147,6 @@ button, .btn {
   background-color: var(--color-principal);
   color: #fff;
   padding: 20px 0;
-  border-radius: 0 0 20px 20px;
 }
 .espai-inici .menu-botons .btn {
   padding: 32px 64px; /* més grans */
@@ -170,8 +169,7 @@ button, .btn {
 .espai-digitalitzacio header {
   background-color: var(--color-principal);
   color: #fff;
-  padding: 40px 0;
-  border-radius: 0 0 20px 20px;
+  padding: 20px 0;
 }
 
 /* SOSTENIBILITAT */
@@ -185,8 +183,7 @@ button, .btn {
 .espai-sostenibilitat header {
   background-color: var(--color-principal);
   color: #fff;
-  padding: 40px 0;
-  border-radius: 0 0 20px 20px;
+  padding: 20px 0;
 }
 
 /* INTRANET */
@@ -200,8 +197,7 @@ button, .btn {
 .espai-intranet header {
   background-color: var(--color-principal);
   color: #fff;
-  padding: 40px 0;
-  border-radius: 0 0 20px 20px;
+  padding: 10px 0;
 }   
 
 /* Colors adaptats dins de cada espai */
