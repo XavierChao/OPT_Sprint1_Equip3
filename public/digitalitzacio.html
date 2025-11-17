@@ -2,33 +2,324 @@
 <html lang="ca">
 <head>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.html    ">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digitalització - OPT Sprint 1</title>
 </head>
 <body class="espai-digitalitzacio">
-    <header>
-        <h1>Digitalització</h1>
-    </header>
+    
+    <style>
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            background-color: rgb(251, 248, 248);
+            padding: 6px;
+            gap: 4px;
+        }
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Inici</a></li>
-            <li><a href="digitalitzacio.html">Digitalització</a></li>
-            <li><a href="sostenibilitat.html">Sostenibilitat</a></li>
-            <li><a href="intranet.html">Intranet</a></li>
-        </ul>
-    </nav>
+        .col-esquerra {
+            flex: 1 1 45%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .col-dreta {
+            flex: 1 1 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .block {
+            background-color: white;
+            border-radius: 10px;
+            padding: 8px;
+        }
+
+        .contenidor-general {
+            border: 5px solid #0077b6; /* blau fort */
+            border-radius: 12px;
+            padding: 8px 12px;
+            margin: 5px auto;
+            max-width: 1200px;
+            background-color: #ffffff;
+        }   
+        .titol-contenidor {
+            flex-basis: 100%; /* ✅ fa que el títol ocupi tot l’ample dins del flex-container */
+            background-color: #f4ece5;
+            border-left: 6px solid #c78b48; /* línia marró lateral */
+            padding: 8px 15px;
+            margin-bottom: 8px; /* espai sota el títol */
+            border-radius: 6px;
+        }
+
+        .block img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .block h2 {
+            color: #1a1a1a;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            border-left: 6px solid #c78b48; /* línia marró clara com la imatge */
+            padding-left: 10px;
+        }
+
+        .block h3 {
+            color: #000;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Bloc del gràfic */
+        .block-esforc {
+            padding: 20px;
+        }
+
+        .titol-esforc {
+            background-color: #c7a478;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* Bloc de característiques amb fons gris */
+        .block-caracteristiques {
+            background-color: #f4ece5;
+            border-left: 10px solid #8b4513;
+            border-radius: 8px;
+            padding: 18px;
+        }
+
+        .block-caracteristiques h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: #000;
+        }
+
+        .block-caracteristiques h3::before {
+            content: "▶";
+            color: #8b4513;
+            margin-right: 10px;
+        }
+
+        .block-caracteristiques ul {
+            margin-top: 15px;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .block-caracteristiques li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        main {
+            margin-top: 0; 
+            padding-top: 0;
+        }
+
+        @media (max-width: 800px) {
+            .flex-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+        <div id="header"></div>
+        <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").outerHTML = html;
+
+                document.querySelector(".dropdown-btn").addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    const menu = event.target.closest(".dropdown").querySelector(".dropdown-menu");
+                    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+                });
+
+                document.addEventListener("click", function() {
+                    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                        menu.style.display = "none";
+                    });
+                });
+                const overlay = document.getElementById('form-overlay');
+        
+                // Obrir Suggeriments
+                document.getElementById('btn-obrir-suggeriments').addEventListener('click', () => {
+                    overlay.style.display = 'block';
+                    document.getElementById('popup-suggeriments').style.display = 'block';
+                });
+
+                // Obrir Contacte
+                document.getElementById('btn-obrir-contactes').addEventListener('click', () => {
+                    overlay.style.display = 'block';
+                    document.getElementById('popup-contacte').style.display = 'block';
+                });
+            });
+        </script>
+
 
     <main>
-        <section>
-            <h2>Apartat de Digitalització</h2>
-            <p>(Contingut pendent)</p>
-        </section>
-    </main>
+    <div class="contenidor-general">
+
+        <div class="flex-container">
+
+            <div class="titol-contenidor">
+                <h2>L'Espai de la Digitalització per a PIMEs</h2>
+            </div>
+            
+            <div class="col-esquerra">
+                <div class="block">
+                    <h2>Què és la Digitalització?</h2>
+                    <p>La digitalització és el procés d'utilitzar tecnologies digitals per canviar un model de negoci i crear noves oportunitats d'ingressos i valor. Per a una PIME, no és només tenir una pàgina web, sinó integrar eines digitals a tots els processos de l'empresa.</p>
+                </div>
+
+                <div class="block block-caracteristiques" style="background-color: #e0f8e0; border-left-color: #008000;"> <h3 style="color: #008000;">Principals Avantatges</h3>
+                    <ul>
+                        <li><b>Major Eficiència:</b> Automatitzar tasques redueix errors i costos.</li>
+                        <li><b>Nous Clients:</b> Obre nous mercats a través de l'e-commerce i el màrqueting digital.</li>
+                        <li><b>Millor Presa de Decisions:</b> Les dades et permeten entendre millor els teus clients.</li>
+                        <li><b>Flexibilitat:</b> Facilita el teletreball i adapta's ràpidament als canvis.</li>
+                    </ul>
+                </div>
+                
+                <div class="block">
+                    <img src="imatges/esquema_PIME.png" alt="Esquema d'una PIME digitalitzada">
+                </div>
+            </div>
+
+            <div class="col-dreta">
+                <div class="block block-caracteristiques" style="background-color: #f8e0e0; border-left-color: #c00;"> <h3 style="color: #c00;">Reptes Comuns</h3>
+                    <ul>
+                        <li><b>Cost Inicial:</b> La inversió en software o hardware pot semblar elevada.</li>
+                        <li><b>Formació:</b> Cal que l'equip aprengui a utilitzar les noves eines.</li>
+                        <li><b>Resistència al Canvi:</b> Superar la inèrcia de "sempre s'ha fet així".</li>
+                        <li><b>Ciberseguretat:</b> Protegir les dades de l'empresa i dels clients és crucial.</li>
+                    </ul>
+                </div>
+
+                <div class="block block-esforc"> <div class="titol-esforc" style="background-color: #0077b6;">El Kit Digital</div>
+                    <p>Per ajudar a superar el repte del cost inicial, el Govern ha llançat el programa <strong>Kit Digital</strong>, finançat pels fons NextGenerationEU.</p>
+                    <p>És una ajuda econòmica ("bo digital") que permet a les PIMEs i autònoms contractar solucions digitals específiques:</p>
+                    <img src="imatges/logo_kit.png" alt="Logo del Kit Digital" style="width: 100%; max-width: 300px; display: block; margin: 15px auto 0;">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+  
 
     <footer>
-        <p>&copy; 2025 OPT Sprint 1 - Equip 3</p>
+        <div id="footer"></div>
+        <script>
+        fetch("footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").outerHTML = html;
+            });
+</script>
     </footer>
+<div class="form-overlay" id="form-overlay"></div>
+
+<div class="form-popup" id="popup-suggeriments">
+    <h2>Envia un Suggeriment</h2>
+    <form id="form-sug">
+        <label for="sug-missatge">El teu suggeriment:</label>
+        <textarea id="sug-missatge" rows="5" required></textarea>
+        
+        <div class="form-actions">
+            <button type="button" class="btn-tancar">Tancar</button>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
+
+<div class="form-popup" id="popup-contacte">
+    <h2>Contacta amb Nosaltres</h2>
+    <form id="form-con">
+        <label for="con-nom">Nom:</label>
+        <input type="text" id="con-nom" required>
+        
+        <label for="con-email">Email:</label>
+        <input type="email" id="con-email" required>
+        
+        <label for="con-missatge">Missatge:</label>
+        <textarea id="con-missatge" rows="4" required></textarea>
+        
+        <div class="form-actions">
+            <button type="button" class="btn-tancar">Tancar</button>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
+<script>
+    // === GESTIÓ DELS FORMULARIS (ENVIAR I TANCAR) ===
+
+    const overlay = document.getElementById('form-overlay');
+    const popupSug = document.getElementById('popup-suggeriments');
+    const popupCon = document.getElementById('popup-contacte');
+
+    // --- 1. Funció per tancar tots els popups ---
+    function tancarTotsElsPopups() {
+        overlay.style.display = 'none';
+        popupSug.style.display = 'none';
+        popupCon.style.display = 'none';
+    }
+
+    // Assigna la funció als botons de tancar i a l'overlay
+    document.querySelectorAll('.btn-tancar').forEach(btn => {
+        btn.addEventListener('click', tancarTotsElsPopups);
+    });
+    overlay.addEventListener('click', tancarTotsElsPopups);
+
+
+    // --- 2. Gestió "Enviar" Suggeriments ---
+    document.getElementById('form-sug').addEventListener('submit', function(event) {
+        // Evita que la pàgina es recarregui
+        event.preventDefault(); 
+        
+        // Recull la informació
+        const missatge = document.getElementById('sug-missatge').value;
+        
+        // Mostra l'alerta
+        alert("El teu suggeriment: \n\n'" + missatge + "'\n\nS'enviaria per correu. Gràcies!");
+        
+        // Tanca el popup
+        tancarTotsElsPopups();
+        document.getElementById('form-sug').reset(); // Buida el formulari
+    });
+
+
+    // --- 3. Gestió "Enviar" Contacte ---
+    document.getElementById('form-con').addEventListener('submit', function(event) {
+        // Evita que la pàgina es recarregui
+        event.preventDefault();
+        
+        // Recull la informació
+        const nom = document.getElementById('con-nom').value;
+        const email = document.getElementById('con-email').value;
+        
+        // Mostra l'alerta
+        alert("Hola, " + nom + " (" + email + ").\n\nLa teva sol·licitud de contacte s'enviaria per correu. Gràcies!");
+        
+        // Tanca el popup
+        tancarTotsElsPopups();
+        document.getElementById('form-con').reset(); // Buida el formulari
+    });
+</script>
 </body>
 </html>

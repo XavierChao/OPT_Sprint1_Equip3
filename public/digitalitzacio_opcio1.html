@@ -2,6 +2,8 @@
 <html lang="ca">
 <head>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.html    ">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digitalització - OPT Sprint 1</title>
@@ -168,9 +170,40 @@
         }
     </style>
     
-    <header class="header-container">
-    
-    </header>
+        <div id="header"></div>
+        <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").outerHTML = html;
+
+                document.querySelector(".dropdown-btn").addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    const menu = event.target.closest(".dropdown").querySelector(".dropdown-menu");
+                    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+                });
+
+                document.addEventListener("click", function() {
+                    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                        menu.style.display = "none";
+                    });
+                });
+                const overlay = document.getElementById('form-overlay');
+        
+                // Obrir Suggeriments
+                document.getElementById('btn-obrir-suggeriments').addEventListener('click', () => {
+                    overlay.style.display = 'block';
+                    document.getElementById('popup-suggeriments').style.display = 'block';
+                });
+
+                // Obrir Contacte
+                document.getElementById('btn-obrir-contactes').addEventListener('click', () => {
+                    overlay.style.display = 'block';
+                    document.getElementById('popup-contacte').style.display = 'block';
+                });
+            });
+        </script>
+
 
     <main>
         <!-- 🔵 Contenidor exterior amb el marc blau -->
@@ -212,13 +245,108 @@
                 </div>
             </div>
         </div>
-        <a href="anterior.html" class="fletxa esquerra">&#8592;</a> 
+        <a href="digitalitzacio.html" class="fletxa esquerra">&#8592;</a> 
         <a href="següent.html" class="fletxa dreta">&#8594;</a>
     </main>
   
 
     <footer>
-        <p>&copy; 2025 OPT Sprint 1 - Equip 3</p>
+        <div id="footer"></div>
+        <script>
+        fetch("footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").outerHTML = html;
+            });
+</script>
     </footer>
+<div class="form-overlay" id="form-overlay"></div>
+
+<div class="form-popup" id="popup-suggeriments">
+    <h2>Envia un Suggeriment</h2>
+    <form id="form-sug">
+        <label for="sug-missatge">El teu suggeriment:</label>
+        <textarea id="sug-missatge" rows="5" required></textarea>
+        
+        <div class="form-actions">
+            <button type="button" class="btn-tancar">Tancar</button>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
+
+<div class="form-popup" id="popup-contacte">
+    <h2>Contacta amb Nosaltres</h2>
+    <form id="form-con">
+        <label for="con-nom">Nom:</label>
+        <input type="text" id="con-nom" required>
+        
+        <label for="con-email">Email:</label>
+        <input type="email" id="con-email" required>
+        
+        <label for="con-missatge">Missatge:</label>
+        <textarea id="con-missatge" rows="4" required></textarea>
+        
+        <div class="form-actions">
+            <button type="button" class="btn-tancar">Tancar</button>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+</div>
+<script>
+    // === GESTIÓ DELS FORMULARIS (ENVIAR I TANCAR) ===
+
+    const overlay = document.getElementById('form-overlay');
+    const popupSug = document.getElementById('popup-suggeriments');
+    const popupCon = document.getElementById('popup-contacte');
+
+    // --- 1. Funció per tancar tots els popups ---
+    function tancarTotsElsPopups() {
+        overlay.style.display = 'none';
+        popupSug.style.display = 'none';
+        popupCon.style.display = 'none';
+    }
+
+    // Assigna la funció als botons de tancar i a l'overlay
+    document.querySelectorAll('.btn-tancar').forEach(btn => {
+        btn.addEventListener('click', tancarTotsElsPopups);
+    });
+    overlay.addEventListener('click', tancarTotsElsPopups);
+
+
+    // --- 2. Gestió "Enviar" Suggeriments ---
+    document.getElementById('form-sug').addEventListener('submit', function(event) {
+        // Evita que la pàgina es recarregui
+        event.preventDefault(); 
+        
+        // Recull la informació
+        const missatge = document.getElementById('sug-missatge').value;
+        
+        // Mostra l'alerta
+        alert("El teu suggeriment: \n\n'" + missatge + "'\n\nS'enviaria per correu. Gràcies!");
+        
+        // Tanca el popup
+        tancarTotsElsPopups();
+        document.getElementById('form-sug').reset(); // Buida el formulari
+    });
+
+
+    // --- 3. Gestió "Enviar" Contacte ---
+    document.getElementById('form-con').addEventListener('submit', function(event) {
+        // Evita que la pàgina es recarregui
+        event.preventDefault();
+        
+        // Recull la informació
+        const nom = document.getElementById('con-nom').value;
+        const email = document.getElementById('con-email').value;
+        
+        // Mostra l'alerta
+        alert("Hola, " + nom + " (" + email + ").\n\nLa teva sol·licitud de contacte s'enviaria per correu. Gràcies!");
+        
+        // Tanca el popup
+        tancarTotsElsPopups();
+        document.getElementById('form-con').reset(); // Buida el formulari
+    });
+</script>
 </body>
 </html>
