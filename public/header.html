@@ -1,0 +1,192 @@
+<style>
+        /* --- HEADER GENERAL --- */
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* marge lateral real */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 0px 20px;
+}
+
+/* Títol a l'esquerra */
+.header-left h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Contenidor dels botons a la dreta */
+.header-right {
+    display: flex;
+    gap: 12px;
+    }
+
+/* Estil dels botons */
+.header-btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 2px solid hsl(201, 100%, 36%);
+    background-color: rgb(66, 164, 213);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.header-btn:hover {
+    background-color: #0077b6;
+    color: rgb(252, 252, 252);
+}
+
+header {
+    margin-bottom: 5px; /* abans era ~20px visualment */
+}
+
+
+/* --- DESPLEGABLE --- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-btn {
+    position: relative;
+    z-index: 2;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 2px solid #0077b6;
+    border-radius: 6px;
+    padding: 5px 0;
+    width: 160px;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    padding: 8px 12px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background-color: #0077b6;
+    color: white;
+}
+/* === CSS PELS FORMULARIS POPUP === */
+
+/* Fons fosc semitransparent */
+.form-overlay {
+    display: none; /* Amagat per defecte */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+}
+
+/* La finestra del formulari */
+.form-popup {
+    display: none; /* Amagat per defecte */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    z-index: 1001;
+    width: 90%;
+    max-width: 450px;
+}
+
+.form-popup h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.form-popup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-popup input[type="text"],
+.form-popup input[type="email"],
+.form-popup textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Assegura que el padding no afecti l'ample */
+}
+
+/* Contenidor per als botons */
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinea els botons a la dreta */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Botons del formulari */
+.form-actions button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-actions button[type="submit"] {
+    background-color: #0077b6; /* Blau */
+    color: white;
+}
+
+.form-actions .btn-tancar {
+    background-color: #ddd; /* Gris */
+    color: black;
+}
+</style>
+
+<header class="header-container">
+    <div class="header-inner">
+        <div class="header-left">
+            <h1>Digitalització</h1>
+        </div>
+
+        <div class="header-right">
+            <div class="dropdown">
+                <button class="header-btn dropdown-btn">Eines ▾</button>
+                <div class="dropdown-menu">
+                    <a href="digitalitzacio_opcio1.html">LA MISSATGERIA INSTANTÀNIA
+</a>
+                    <a href="eina2.html">Eina 2</a>
+                    <a href="eina3.html">Eina 3</a>
+                </div>
+            </div>
+            <button class="header-btn">X</button>
+            <button class="header-btn" id="btn-obrir-suggeriments">Suggeriments</button>
+            <button class="header-btn" id="btn-obrir-contactes">Contactes</button>
+        </div>
+    </div>
+</header>
+

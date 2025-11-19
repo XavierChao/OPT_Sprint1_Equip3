@@ -126,6 +126,38 @@
             line-height: 1.5;
         }
 
+        .fletxa {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: white;
+            border: 2px solid #0077b6;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 45px;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+
+        .fletxa:hover {
+            background-color: #0077b6;
+            color: white;
+        }
+
+        .fletxa.esquerra {
+            left: 30px;
+        }
+
+        .fletxa.dreta {
+            right: 30px;
+        }
+
         main {
             margin-top: 0; 
             padding-top: 0;
@@ -174,53 +206,48 @@
 
 
     <main>
-    <div class="contenidor-general">
+        <!-- 🔵 Contenidor exterior amb el marc blau -->
+        <div class="contenidor-general">
 
-        <div class="flex-container">
+            <!-- Contenidor intern amb dues columnes -->
+            <div class="flex-container">
 
-            <div class="titol-contenidor">
-                <h2>L'Espai de la Digitalització per a PIMEs</h2>
+                <div class="titol-contenidor">
+                <h2>La missatgeria instantània</h2>
             </div>
-            
-            <div class="col-esquerra">
-                <div class="block">
-                    <h2>Què és la Digitalització?</h2>
-                    <p>La digitalització és el procés d'utilitzar tecnologies digitals per canviar un model de negoci i crear noves oportunitats d'ingressos i valor. Per a una PIME, no és només tenir una pàgina web, sinó integrar eines digitals a tots els processos de l'empresa.</p>
+                <!-- Columna esquerra -->
+                <div class="col-esquerra">
+                    <div class="block">
+                        <p>Les aplicacions de missatgeria instantània com Whatsapp o Telegram permeten intercanviar informació a temps real de diferents tipus d'arxius, ja siguin textos, imatges, vídeos, missatges de veu o fins i tot fer videoconferències.</p>
+                        <p>Sabies que són eines apropiades per fidelitzar la clientela?</p>
+                    </div>
+
+                    <div class="block">
+                        <img src="imatges/Persones_telefons.png" alt="Persones amb telèfons">
+                    </div>
                 </div>
 
-                <div class="block block-caracteristiques" style="background-color: #e0f8e0; border-left-color: #008000;"> <h3 style="color: #008000;">Principals Avantatges</h3>
-                    <ul>
-                        <li><b>Major Eficiència:</b> Automatitzar tasques redueix errors i costos.</li>
-                        <li><b>Nous Clients:</b> Obre nous mercats a través de l'e-commerce i el màrqueting digital.</li>
-                        <li><b>Millor Presa de Decisions:</b> Les dades et permeten entendre millor els teus clients.</li>
-                        <li><b>Flexibilitat:</b> Facilita el teletreball i adapta's ràpidament als canvis.</li>
-                    </ul>
-                </div>
-                
-                <div class="block">
-                    <img src="imatges/esquema_PIME.png" alt="Esquema d'una PIME digitalitzada">
-                </div>
-            </div>
+                <!-- Columna dreta -->
+                <div class="col-dreta">
+                    <div class="block block-esforc">
+                        <div class="titol-esforc">Quin esforç t’implica?</div>
+                        <img src="imatges/Grafic2.png" alt="Gràfic d’inversió, temps i complexitat">
+                    </div>
 
-            <div class="col-dreta">
-                <div class="block block-caracteristiques" style="background-color: #f8e0e0; border-left-color: #c00;"> <h3 style="color: #c00;">Reptes Comuns</h3>
-                    <ul>
-                        <li><b>Cost Inicial:</b> La inversió en software o hardware pot semblar elevada.</li>
-                        <li><b>Formació:</b> Cal que l'equip aprengui a utilitzar les noves eines.</li>
-                        <li><b>Resistència al Canvi:</b> Superar la inèrcia de "sempre s'ha fet així".</li>
-                        <li><b>Ciberseguretat:</b> Protegir les dades de l'empresa i dels clients és crucial.</li>
-                    </ul>
-                </div>
-
-                <div class="block block-esforc"> <div class="titol-esforc" style="background-color: #0077b6;">El Kit Digital</div>
-                    <p>Per ajudar a superar el repte del cost inicial, el Govern ha llançat el programa <strong>Kit Digital</strong>, finançat pels fons NextGenerationEU.</p>
-                    <p>És una ajuda econòmica ("bo digital") que permet a les PIMEs i autònoms contractar solucions digitals específiques:</p>
-                    <img src="imatges/logo_kit.png" alt="Logo del Kit Digital" style="width: 100%; max-width: 300px; display: block; margin: 15px auto 0;">
+                    <div class="block block-caracteristiques">
+                        <h3>Principals característiques</h3>
+                        <ul>
+                            <li><b>La inversió és baixa:</b> Les aplicacions de missatgeria instantània tenen un cost econòmic molt baix; WhatsApp i Telegram són gratuïtes.</li>
+                            <li><b>El temps de dedicació és mitjà-baix:</b> La missatgeria instantània no presenta massa dificultats tècniques, la qual cosa facilita molt el seu ús.</li>
+                            <li><b>La dificultat tècnica és baixa:</b> La major part d'opcions que ofereix no presenten massa dificultat. Un cop plantejada una estratègia, el seu desenvolupament és senzill.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+        <a href="digitalitzacio.html" class="fletxa esquerra">&#8592;</a> 
+        <a href="següent.html" class="fletxa dreta">&#8594;</a>
+    </main>
   
 
     <footer>
