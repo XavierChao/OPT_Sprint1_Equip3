@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer_intranet.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet - OPT Sprint 1</title>
+</head>
+<body class="espai-intranet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ocupa tota l'alçada de la pantalla */
+            margin: 0;
+        }
+
+        main {
+            flex: 1; /* Creix per ocupar tot l'espai disponible */
+            display: flex; /* Per poder centrar els botons dins del main */
+            flex-direction: column;
+            justify-content: center; /* Centra verticalment */
+            align-items: center;     /* Centra horitzontalment */
+        }
+        .menu-botons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
+        }
+
+        /* Botons estil Intranet (Mantenim el teu disseny específic) */
+        .btn-intranet {
+            background-color: #fe8828; /* taronja intranet */
+            color: white;
+            border: 3px solid #8b5e2f; 
+            padding: 14px 28px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 200px;
+            transition: 0.25s;
+        }
+
+        .btn-intranet:hover {
+            background-color: #8b5e2f;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        
+        @media (max-width: 800px) {
+            .flex-container {
+                flex-direction: column;
+            }
+        }
+/* --- ESTILS PER AL LLISTAT D'EMPRESES (VERSIÓ CORREGIDA AMB !IMPORTANT) --- */
+
+        .intranet-content {
+            text-align: center;
+            background-color: white !important; /* Força fons blanc */
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #fe8828;
+            max-width: 800px;
+            width: 90%;
+            margin-top: 20px;
+            color: #333 !important; /* Força text negre */
+        }
+
+        .llistat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .empresa-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background-color: white;
+        }
+
+        /* Botó de l'empresa (títol) */
+        .btn-empresa {
+            width: 100%;
+            background-color: #f9f9f9 !important;
+            color: #333 !important;
+            border: none;
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .btn-empresa:hover {
+            background-color: #ffead6 !important;
+        }
+        .btn-empresa:after {
+            content: '▼'; 
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Desplegable de formularis */
+        .formulari-dropdown {
+            background-color: #fff4e6 !important; /* Fons crema */
+            color: #333 !important; /* Text fosc */
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: none; 
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .formulari-dropdown p {
+            color: #333 !important;
+            margin: 0 0 5px 0;
+        }
+
+        /* Quan afegim aquesta classe amb JS, es mostra */
+        .formulari-dropdown.open {
+            display: flex;
+        }
+
+        /* Enllaç al formulari - FIX DEFINITIU */
+        /* Utilitzem !important per assegurar que es vegi blanc i taronja */
+        .intranet-content .btn-formulari {
+            display: block;
+            padding: 12px;
+            background-color: white !important; 
+            border: 2px solid #fe8828 !important;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #d35400 !important; /* Taronja fosc */
+            font-weight: bold;
+            text-align: center;
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+        
+        .intranet-content .btn-formulari:hover {
+            background-color: #fe8828 !important;
+            color: white !important;
+        }
+    </style>
+        <div id="header-placeholder"></div>
+        <script>
+        fetch("header_intranet.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header-placeholder").innerHTML = data;
+            });
+        </script>
+
+    <main>
+        <div class="intranet-content">
+            <h1 style="color: #8b5e2f;">Llistat d'Empreses</h1>
+            <p>Selecciona una empresa per accedir als formularis de diagnosi:</p>
+
+            <div class="llistat-container">
+                
+                <!-- EMPRESA 1 -->
+                <div class="empresa-card">
+                    <button class="btn-empresa" onclick="toggleDropdown('drop-1')">
+                        Botiga de Roba "Estil Modern"
+                    </button>
+                    <div id="drop-1" class="formulari-dropdown">
+                        <p><strong>Escull el formulari:</strong></p>
+                        <a href="https://ccam.gencat.cat/ca/serveis/autodiagnosi/" target="_blank" class="btn-formulari">
+                            📝 Autodiagnosi Sector Comercial
+                        </a>
+                    </div>
+                </div>
+
+                <!-- EMPRESA 2 -->
+                <div class="empresa-card">
+                    <button class="btn-empresa" onclick="toggleDropdown('drop-2')">
+                        Supermercat "El Barri"
+                    </button>
+                    <div id="drop-2" class="formulari-dropdown">
+                        <p><strong>Escull el formulari:</strong></p>
+                        <a href="https://ccam.gencat.cat/ca/serveis/autodiagnosi/" target="_blank" class="btn-formulari">
+                            📝 Autodiagnosi Sector Comercial
+                        </a>
+                    </div>
+                </div>
+
+                <!-- EMPRESA 3 -->
+                <div class="empresa-card">
+                    <button class="btn-empresa" onclick="toggleDropdown('drop-3')">
+                        Fusteria "Fusta Fina S.L."
+                    </button>
+                    <div id="drop-3" class="formulari-dropdown">
+                        <p><strong>Escull el formulari:</strong></p>
+                        <a href="https://ccam.gencat.cat/ca/serveis/autodiagnosi/" target="_blank" class="btn-formulari">
+                            📝 Autodiagnosi Sector Comercial
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botó per tornar a la Home (tancar sessió) -->
+            <button class="btn-intranet" style="width: auto; padding: 10px 20px;" onclick="window.location.href='intranet.html'">
+                Tancar Sessió
+            </button>
+        </div>
+    </main>
+    <script>
+        // Funció per obrir/tancar el desplegable de cada empresa
+        function toggleDropdown(idDropdown) {
+            const dropdown = document.getElementById(idDropdown);
+            // Si té la classe 'open', la treu; si no, la posa
+            dropdown.classList.toggle('open');
+        }
+    </script>
+    <footer>
+        <div id="footer_intranet"></div>
+        <script>
+        fetch("footer_intranet.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer_intranet").outerHTML = html;
+            });
+</script>
+    </footer>
+</body>
+</html>
