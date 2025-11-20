@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La missatgeria instantània - Digitalització</title>
+    <title>WhatsApp Business - Digitalització</title>
 </head>
 <body class="espai-digitalitzacio">
     
@@ -23,34 +23,6 @@
             padding: 0 15px;
         }
 
-        .flex-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .col-esquerra {
-            flex: 1 1 45%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .col-dreta {
-            flex: 1 1 50%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .block {
-            background-color: white;
-            border-radius: 6px;
-            padding: 12px;
-        }
-
         .contenidor-general {
             background-color: #ffffff;
             padding: 20px;
@@ -60,7 +32,6 @@
         }   
 
         .titol-contenidor {
-            flex-basis: 100%;
             background-color: #f4ece5;
             border-left: 5px solid #c78b48;
             padding: 10px 15px;
@@ -68,83 +39,124 @@
             border-radius: 5px;
         }
 
-        .block img {
-            width: 100%;
-            border-radius: 6px;
-            max-height: 280px;
-            object-fit: contain;
-        }
-
-        .block h2 {
-            color: #1a1a1a;
-            font-size: 1.4rem;
+        .titol-contenidor h2 {
             margin: 0;
+            font-size: 1.4rem;
+            color: #1a1a1a;
         }
 
-        .block h3 {
-            color: #000;
-            font-size: 1rem;
-            margin-bottom: 10px;
-            font-weight: bold;
+        .dos-columnes {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
         }
 
-        .block p {
-            line-height: 1.5;
-            color: #333;
-            margin: 0 0 8px 0;
-            font-size: 0.9rem;
+        .columna-esquerra {
+            flex: 1;
         }
 
-        /* Bloc del gràfic */
-        .block-esforc {
-            padding: 14px;
+        .columna-dreta {
+            flex: 1;
+            text-align: center;
         }
 
-        .titol-esforc {
+        .columna-dreta img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .video-text {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
+        .video-link {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .video-link:hover {
+            text-decoration: underline;
+        }
+
+        .seccio {
+            margin-bottom: 20px;
+        }
+
+        .seccio-titol {
             background-color: #c7a478;
             color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
             font-weight: bold;
-            text-align: center;
-            padding: 8px;
-            border-radius: 4px;
             margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-
-        /* Bloc de característiques */
-        .block-caracteristiques {
-            background-color: #f4ece5;
-            border-left: 6px solid #8b4513;
-            border-radius: 6px;
-            padding: 14px;
-        }
-
-        .block-caracteristiques h3 {
             font-size: 1rem;
+        }
+
+        .seccio-nota {
+            background-color: #c7a478;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            color: #000;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 1rem;
         }
 
-        .block-caracteristiques h3::before {
-            content: "▶";
-            color: #8b4513;
-            margin-right: 8px;
-            font-size: 0.85rem;
+        .seccio-contingut {
+            background-color: #f9f6f2;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #c78b48;
         }
 
-        .block-caracteristiques ul {
-            margin: 0;
-            list-style: none;
-            padding-left: 0;
+        .seccio-contingut ul {
+            margin: 8px 0;
+            padding-left: 20px;
         }
 
-        .block-caracteristiques li {
+        .seccio-contingut li {
             margin-bottom: 8px;
-            line-height: 1.4;
+            line-height: 1.5;
             font-size: 0.88rem;
+        }
+
+        .seccio-contingut p {
+            margin: 8px 0;
+            line-height: 1.5;
+            font-size: 0.88rem;
+        }
+
+        .seccio-contingut strong {
+            color: #1a1a1a;
+        }
+
+        .items-temes {
+            background-color: #fff;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .items-temes h4 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: #c78b48;
+        }
+
+        .items-temes ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .items-temes li {
+            margin-bottom: 6px;
+            font-size: 0.88rem;
+            line-height: 1.4;
         }
 
         .fletxa {
@@ -182,12 +194,9 @@
             right: 30px;
         }
 
-        @media (max-width: 800px) {
-            .flex-container {
+        @media (max-width: 900px) {
+            .dos-columnes {
                 flex-direction: column;
-            }
-            .col-esquerra, .col-dreta {
-                flex: 1 1 100%;
             }
         }
     </style>
@@ -230,46 +239,66 @@
             <span>›</span>
             <a href="digitalitzacio.html">Digitalització</a>
             <span>›</span>
-            <span>La missatgeria instantània</span>
+            <span>WhatsApp Business</span>
         </nav>
 
         <div class="contenidor-general">
-            <div class="flex-container">
-                <div class="titol-contenidor">
-                    <h2>La missatgeria instantània</h2>
+            <div class="titol-contenidor">
+                <h2>De WhatsApp a WhatsApp professional. El que t'interessa saber.</h2>
+            </div>
+
+            <div class="dos-columnes">
+                <div class="columna-esquerra">
+                    <div class="seccio">
+                        <div class="seccio-titol">Sabies que...</div>
+                        <div class="seccio-contingut">
+                            <ul>
+                                <li>És possible vincular el teu <strong>telèfon fixe al WhatsApp Business</strong> i tenir ambdues apps al teu terminal vinculades a números diferents.</li>
+                                <li>Whatsapp Business et permetrà crear un perfil de negoci en el qual podràs indicar informació relativa a l'adreça, el correu electrònic, xarxes socials...</li>
+                                <li>Et permetrà disposar d'estadístiques <strong>d'ús de la teva clientela</strong>.</li>
+                                <li>Des de <a href="https://web.whatsapp.com" class="video-link" target="_blank">https://web.whatsapp.com</a> podràs iniciar la teva sessió en fins a 5 dispositius (el terminal mòbil on està instal·lat, ordinadors i tauletes)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="seccio">
+                        <div class="seccio-nota">Pren nota de...</div>
+                        <div class="seccio-contingut">
+                            <ul>
+                                <li>Si et vols comunicar amb la clientela a través de WhatsApp <strong>és recomanable que, per privacitat, sigui primer la persona interessada el que et contacti</strong>.</li>
+                                <li>L'ús de la missatgeria instantània no significa en viar missatges comercials a tots els contactes. És una pràctica que <strong>pot generar rebuig per part de la clientela</strong>.</li>
+                                <li>Per ordenar la teva agenda professional pots utilitzar <strong>paraules clau</strong> quan desis els contactes. T'ajudarà a agilitzar-ne les converses.</li>
+                                <li>Per mitjà de les <strong>etiquetes</strong> o <strong>llistes de difusió</strong> podràs organitzar comunicacions segmentades en funció del perfil de clientela i el seu vincle amb el teu negoci.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-esquerra">
-                    <div class="block">
-                        <p>Les aplicacions de missatgeria instantània com Whatsapp o Telegram permeten intercanviar informació a temps real de diferents tipus d'arxius, ja siguin textos, imatges, vídeos, missatges de veu o fins i tot fer videoconferències.</p>
-                        <p>Sabies que són eines apropiades per fidelitzar la clientela?</p>
+                <div class="columna-dreta">
+                    <img src="imatges/video_whatsapp_business.png" alt="Tutorial WhatsApp Business">
+                    <div class="video-text">
+                        En aquest tutorial t'expliquem com treure millor rendiment de la missatgeria instantània en el teu negoci. Ho fem mitjançant l'explicació d'una eina de missatgeria, en concret: <strong>el WhatsApp Business</strong>.
                     </div>
-
-                    <div class="block">
-                        <img src="imatges/Persones_telefons.png" alt="Persones amb telèfons">
-                    </div>
-                </div>
-
-                <div class="col-dreta">
-                    <div class="block block-esforc">
-                        <div class="titol-esforc">Quin esforç t'implica?</div>
-                        <img src="imatges/Grafic2.png" alt="Gràfic d'inversió, temps i complexitat">
-                    </div>
-
-                    <div class="block block-caracteristiques">
-                        <h3>Principals característiques</h3>
+                    <div class="items-temes">
+                        <h4>Els ítems que abordem són:</h4>
                         <ul>
-                            <li><b>La inversió és baixa:</b> Les aplicacions de missatgeria instantània tenen un cost econòmic molt baix; WhatsApp i Telegram són gratuïtes.</li>
-                            <li><b>El temps de dedicació és mitjà-baix:</b> La missatgeria instantània no presenta massa dificultats tècniques, la qual cosa facilita molt el seu ús.</li>
-                            <li><b>La dificultat tècnica és baixa:</b> La major part d'opcions que ofereix no presenten massa dificultat. Un cop plantejada una estratègia, el seu desenvolupament és senzill.</li>
+                            <li>Què és WhatsApp Business?</li>
+                            <li>Per a què serveix?</li>
+                            <li>Quines millores et pot aportar?</li>
                         </ul>
+                        <p style="font-size: 0.85rem; margin-top: 12px; font-style: italic;">
+                            Fes clic sobre la imatge per visualitzar el videotutorial i recorda que s'obrirà al navegador.
+                        </p>
+                        <p style="font-size: 0.85rem; margin: 5px 0 0 0;">
+                            <a href="https://drive.google.com/file/d/1WxcaQXi22hmeSzS-XEt7O-" class="video-link" target="_blank">https://drive.google.com/file/d/1WxcaQXi22hmeSzS-XEt7O-</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
         
-        <a href="" class="fletxa esquerra">&#8592;</a> 
-        <a href="digitalitzacio_opcio2.html" class="fletxa dreta">&#8594;</a>
+        <a href="digitalitzacio_opcio2.html" class="fletxa esquerra">&#8592;</a> 
+        <a href="digitalitzacio_opcio4.html" class="fletxa dreta">&#8594;</a>
     </main>
 
     <footer>

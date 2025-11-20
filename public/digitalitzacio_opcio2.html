@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La missatgeria instantània - Digitalització</title>
+    <title>Vendre amb missatgeria - Digitalització</title>
 </head>
 <body class="espai-digitalitzacio">
     
@@ -23,34 +23,6 @@
             padding: 0 15px;
         }
 
-        .flex-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .col-esquerra {
-            flex: 1 1 45%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .col-dreta {
-            flex: 1 1 50%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .block {
-            background-color: white;
-            border-radius: 6px;
-            padding: 12px;
-        }
-
         .contenidor-general {
             background-color: #ffffff;
             padding: 20px;
@@ -60,91 +32,132 @@
         }   
 
         .titol-contenidor {
-            flex-basis: 100%;
-            background-color: #f4ece5;
-            border-left: 5px solid #c78b48;
-            padding: 10px 15px;
-            margin-bottom: 18px;
+            background-color: #c78b48;
+            color: white;
+            padding: 12px 20px;
+            margin-bottom: 20px;
             border-radius: 5px;
+            text-align: center;
         }
 
-        .block img {
-            width: 100%;
-            border-radius: 6px;
-            max-height: 280px;
-            object-fit: contain;
-        }
-
-        .block h2 {
-            color: #1a1a1a;
-            font-size: 1.4rem;
+        .titol-contenidor h2 {
             margin: 0;
-        }
-
-        .block h3 {
-            color: #000;
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
-        .block p {
+        .subtitol {
+            background-color: #f4ece5;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .tres-columnes {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .columna {
+            flex: 1;
+            text-align: center;
+        }
+
+        .columna h3 {
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .columna p {
+            font-size: 0.88rem;
             line-height: 1.5;
             color: #333;
-            margin: 0 0 8px 0;
-            font-size: 0.9rem;
         }
 
-        /* Bloc del gràfic */
-        .block-esforc {
-            padding: 14px;
-        }
-
-        .titol-esforc {
+        .titol-idees {
             background-color: #c7a478;
             color: white;
-            font-weight: bold;
+            padding: 10px;
             text-align: center;
-            padding: 8px;
-            border-radius: 4px;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-
-        /* Bloc de característiques */
-        .block-caracteristiques {
-            background-color: #f4ece5;
-            border-left: 6px solid #8b4513;
-            border-radius: 6px;
-            padding: 14px;
-        }
-
-        .block-caracteristiques h3 {
-            font-size: 1rem;
+            border-radius: 5px;
+            margin-bottom: 15px;
             font-weight: bold;
             display: flex;
             align-items: center;
-            color: #000;
-            margin-bottom: 10px;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .block-caracteristiques h3::before {
-            content: "▶";
-            color: #8b4513;
-            margin-right: 8px;
+        .titol-idees::before {
+            content: "💡";
+            font-size: 1.3rem;
+        }
+
+        .idees-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .idea-block {
+            background-color: #f9f6f2;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #c78b48;
+        }
+
+        .idea-block h4 {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            color: #1a1a1a;
+        }
+
+        .idea-block p {
             font-size: 0.85rem;
-        }
-
-        .block-caracteristiques ul {
-            margin: 0;
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .block-caracteristiques li {
-            margin-bottom: 8px;
             line-height: 1.4;
-            font-size: 0.88rem;
+            margin: 0;
+            color: #444;
+        }
+
+        .imatge-mobil {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .imatge-mobil img {
+            max-width: 250px;
+            border-radius: 8px;
+        }
+
+        .nota-final {
+            background-color: #fff8e1;
+            border-left: 4px solid #f9a825;
+            padding: 12px 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .nota-final::before {
+            content: "👉";
+            font-size: 1.2rem;
+        }
+
+        .nota-final p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         .fletxa {
@@ -182,12 +195,18 @@
             right: 30px;
         }
 
-        @media (max-width: 800px) {
-            .flex-container {
+        @media (max-width: 900px) {
+            .tres-columnes {
                 flex-direction: column;
             }
-            .col-esquerra, .col-dreta {
-                flex: 1 1 100%;
+            .idees-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .idees-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -230,46 +249,60 @@
             <span>›</span>
             <a href="digitalitzacio.html">Digitalització</a>
             <span>›</span>
-            <span>La missatgeria instantània</span>
+            <span>Vendre amb missatgeria</span>
         </nav>
 
         <div class="contenidor-general">
-            <div class="flex-container">
-                <div class="titol-contenidor">
-                    <h2>La missatgeria instantània</h2>
+
+            <div class="subtitol">
+                <strong>Com et pot ajudar a vendre la missatgeria instantània?</strong><br>
+                La missatgeria instantània ens pot ajudar a mantenir una relació més estreta i constant amb la nostra clientela, ja que:
+            </div>
+
+            <div class="tres-columnes">
+                <div class="columna">
+                    <h3>T'ajuda a impulsar accions comercials més específiques</h3>
+                    <p>Ens ofereix la possibilitat d'enviar comunicacions i fer accions comercials molt més directes.</p>
                 </div>
-
-                <div class="col-esquerra">
-                    <div class="block">
-                        <p>Les aplicacions de missatgeria instantània com Whatsapp o Telegram permeten intercanviar informació a temps real de diferents tipus d'arxius, ja siguin textos, imatges, vídeos, missatges de veu o fins i tot fer videoconferències.</p>
-                        <p>Sabies que són eines apropiades per fidelitzar la clientela?</p>
-                    </div>
-
-                    <div class="block">
-                        <img src="imatges/Persones_telefons.png" alt="Persones amb telèfons">
-                    </div>
+                <div class="columna">
+                    <h3>Et fa més present en la resolució de dubtes</h3>
+                    <p>La facilitat d'ús d'aquesta eina permet que la nostra clientela disposi d'un canal d'atenció molt personalitzat i en temps real.</p>
                 </div>
+                <div class="columna">
+                    <h3>Promou la confiança i contribueix a la fidelització.</h3>
+                    <p>Al ser una eina utilitzada per les persones ens permet promoure una major confiança i un tancament de comandes més eficient.</p>
+                </div>
+            </div>
 
-                <div class="col-dreta">
-                    <div class="block block-esforc">
-                        <div class="titol-esforc">Quin esforç t'implica?</div>
-                        <img src="imatges/Grafic2.png" alt="Gràfic d'inversió, temps i complexitat">
-                    </div>
+            <div class="titol-idees">
+                Et donem algunes idees...
+            </div>
 
-                    <div class="block block-caracteristiques">
-                        <h3>Principals característiques</h3>
-                        <ul>
-                            <li><b>La inversió és baixa:</b> Les aplicacions de missatgeria instantània tenen un cost econòmic molt baix; WhatsApp i Telegram són gratuïtes.</li>
-                            <li><b>El temps de dedicació és mitjà-baix:</b> La missatgeria instantània no presenta massa dificultats tècniques, la qual cosa facilita molt el seu ús.</li>
-                            <li><b>La dificultat tècnica és baixa:</b> La major part d'opcions que ofereix no presenten massa dificultat. Un cop plantejada una estratègia, el seu desenvolupament és senzill.</li>
-                        </ul>
-                    </div>
+            <div class="idees-grid">
+                <div class="idea-block">
+                    <h4>Menjar preparat:</h4>
+                    <p>imagina que a través del WhatsApp pots informar la teva clientela dels plats o menús del dia de manera que puguin fer la seva comanda i indicar l'hora en què la passaran a recollir. De ben segur que agrairan conèixer de primera mà i en exclusiva les teves propostes del dia.</p>
+                </div>
+                <div class="idea-block">
+                    <h4>Centre d'estètica:</h4>
+                    <p>pots utilitzar la missatgeria instantània per donar a conèixer els serveis, productes i marques amb les quals treballes. Per mitjà del catàleg poden tenir informació actualitzada, amb fotografies i preus. Aquest canal també es pot emprar per a la reserva o recordatori de cites.</p>
+                </div>
+                <div class="idea-block">
+                    <h4>Pastisseria:</h4>
+                    <p>com a servei personal, pots fer un llistat de contactes de la teva clientela i oferir-li, si així ho desitja, la possibilitat de fer les reserves a través de WhatsApp. Si la teva clientela realitza la seva comanda amb antelació, tindràs més temps per organizar-te en funció de la demanda.</p>
+                </div>
+            </div>
+
+            <div class="imatge-mobil">
+                <img src="imatges/mobil_whatsapp.png" alt="Mòbil amb WhatsApp">
+                <div class="nota-final">
+                    <p>Per saber-ne més, tens un tutorial sobre WhatsApp Business a la pàgina següent.</p>
                 </div>
             </div>
         </div>
         
-        <a href="" class="fletxa esquerra">&#8592;</a> 
-        <a href="digitalitzacio_opcio2.html" class="fletxa dreta">&#8594;</a>
+        <a href="digitalitzacio_opcio1.html" class="fletxa esquerra">&#8592;</a> 
+        <a href="digitalitzacio_opcio3.html" class="fletxa dreta">&#8594;</a>
     </main>
 
     <footer>

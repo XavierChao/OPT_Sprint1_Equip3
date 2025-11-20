@@ -5,6 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pàgina d'Inici - OPT Sprint 1</title>
+    <style>
+        .espai-inici main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .espai-inici .menu-botons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .espai-inici .menu-botons .btn {
+            flex: 1 1 250px;
+            min-width: 200px;
+            max-width: 300px;
+            padding: 32px 48px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .espai-inici .menu-botons .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .espai-inici .menu-botons {
+                gap: 20px;
+            }
+
+            .espai-inici .menu-botons .btn {
+                flex: 1 1 100%;
+                max-width: 100%;
+                padding: 24px 32px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .espai-inici main {
+                min-height: 50vh;
+            }
+
+            .espai-inici .menu-botons .btn {
+                padding: 20px 24px;
+                font-size: 1rem;
+            }
+
+            .espai-inici header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body class="espai-inici">
     <style>
@@ -19,13 +82,11 @@
         <p>Equip 3 - Projecte Web</p>
     </header>
 
-
-
     <main>
         <div class="menu-botons">
-            <a href="digitalitzacio.html" class="btn btn-digitalitzacio">💻 Digitalització 🖥️</a>
-            <a href="sostenibilitat.html" class="btn btn-sostenibilitat">🌍 Sostenibilitat 🌱</a>
-            <a href="intranet.html" class="btn btn-intranet">🛜 Intranet 📶</a>
+            <a href="digitalitzacio.html" class="btn btn-digitalitzacio">Digitalització</a>
+            <a href="sostenibilitat.html" class="btn btn-sostenibilitat">Sostenibilitat</a>
+            <a href="intranet.html" class="btn btn-intranet">Intranet</a>
         </div>
     </main>
 

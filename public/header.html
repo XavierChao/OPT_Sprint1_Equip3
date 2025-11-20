@@ -7,48 +7,72 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* marge lateral real */
+    padding: 0 20px;
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff;
-    padding: 0px 20px;
+    background-color: #0077b6;
+    padding: 12px 20px;
+    margin-bottom: 0;
 }
 
-/* Títol a l'esquerra */
-.header-left h1 {
-    margin: 0;
-    font-size: 2rem;
+/* Logo/Brand MontsiTech */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand-link {
+    text-decoration: none;
     color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.brand-link:hover {
+    opacity: 0.8;
+}
+
+.page-title {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: normal;
+    border-left: 3px solid rgba(255,255,255,0.5);
+    padding-left: 15px;
 }
 
 /* Contenidor dels botons a la dreta */
 .header-right {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     }
 
 /* Estil dels botons */
 .header-btn {
     padding: 8px 14px;
     border-radius: 6px;
-    border: 2px solid hsl(201, 100%, 36%);
-    background-color: rgb(66, 164, 213);
+    border: 2px solid rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.15);
+    color: #ffffff;
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
+    font-size: 0.9rem;
 }
 
 .header-btn:hover {
-    background-color: #0077b6;
-    color: rgb(252, 252, 252);
+    background-color: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
 }
 
 header {
-    margin-bottom: 5px; /* abans era ~20px visualment */
+    margin-bottom: 0;
 }
 
 
@@ -70,7 +94,7 @@ header {
     border: 2px solid #0077b6;
     border-radius: 6px;
     padding: 5px 0;
-    width: 160px;
+    width: 180px;
     display: none;
     flex-direction: column;
     z-index: 1000;
@@ -80,8 +104,9 @@ header {
     padding: 8px 12px;
     display: block;
     text-decoration: none;
-    color: black;
+    color: #333;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .dropdown-menu a:hover {
@@ -170,20 +195,20 @@ header {
 <header class="header-container">
     <div class="header-inner">
         <div class="header-left">
-            <h1>Digitalització</h1>
+            <a href="index.html" class="brand-link">MontsiTech</a>
+            <h1 class="page-title" id="page-title-header">Digitalització</h1>
         </div>
 
         <div class="header-right">
             <div class="dropdown">
                 <button class="header-btn dropdown-btn">Eines ▾</button>
                 <div class="dropdown-menu">
-                    <a href="digitalitzacio_opcio1.html">LA MISSATGERIA INSTANTÀNIA
-</a>
-                    <a href="eina2.html">Eina 2</a>
-                    <a href="eina3.html">Eina 3</a>
+                    <a href="digitalitzacio_opcio1.html">Missatgeria instantània</a>
+                    <a href="digitalitzacio_opcio2.html">Vendre amb missatgeria</a>
+                    <a href="digitalitzacio_opcio3.html">WhatsApp Business</a>
+                    <a href="digitalitzacio_opcio4.html">Exemple pràctic</a>
                 </div>
             </div>
-            <button class="header-btn">X</button>
             <button class="header-btn" id="btn-obrir-suggeriments">Suggeriments</button>
             <button class="header-btn" id="btn-obrir-contactes">Contactes</button>
         </div>
