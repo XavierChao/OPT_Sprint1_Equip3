@@ -215,21 +215,70 @@ button, .btn {
   background-color: #fff;
 }
 
-.espai-digitalitzacio a,
-.espai-sostenibilitat a,
-.espai-intranet a {
+.espai-digitalitzacio .btn,
+.espai-digitalitzacio .btn-digitalitzacio,
+.espai-digitalitzacio .header-btn,
+.espai-sostenibilitat .btn,
+.espai-sostenibilitat .btn-sostenibilitat,
+.espai-sostenibilitat .header-btn,
+.espai-intranet .btn,
+.espai-intranet .btn-intranet,
+.espai-intranet .header-btn {
   background-color: var(--color-principal);
 }
-.espai-inici a:hover,
-.espai-digitalitzacio a:hover,
-.espai-sostenibilitat a:hover,
-.espai-intranet a:hover {
+
+.espai-digitalitzacio .btn:hover,
+.espai-digitalitzacio .btn-digitalitzacio:hover,
+.espai-digitalitzacio .header-btn:hover,
+.espai-sostenibilitat .btn:hover,
+.espai-sostenibilitat .btn-sostenibilitat:hover,
+.espai-sostenibilitat .header-btn:hover,
+.espai-intranet .btn:hover,
+.espai-intranet .btn-intranet:hover,
+.espai-intranet .header-btn:hover {
   opacity: 0.9;
 }
 
 /* ==========================================================
    DISSENY RESPONSIVE (per a mòbils i pantalles petites)
    ========================================================== */
+
+/* Breadcrumb (styled for digitalització layout) */
+nav.breadcrumb {
+background: none;
+padding: 8px 0;
+margin: 12px 0 8px 0; /* alineado al inicio del contenedor */
+font-size: 1rem;
+border-radius: 0;
+box-shadow: none;    
+display: block; /* ocupa toda la anchura del contenedor */
+width: 100%;
+text-align: left; /* texto alineado a la izquierda */
+border: none;
+}
+nav.breadcrumb a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  padding: 0 6px 0 0;
+  transition: color 0.15s ease;
+}
+nav.breadcrumb a:hover,
+nav.breadcrumb a:focus {
+  color: #555;
+  text-decoration: underline;
+}
+nav.breadcrumb span {
+  color: #7a7a7a;
+  margin: 0 6px;
+  font-weight: normal;
+}
+nav.breadcrumb span:last-child {
+  color: #333;
+  font-weight: 500;
+}
 
 @media (max-width: 600px) {
   header h1 {
