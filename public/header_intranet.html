@@ -1,4 +1,63 @@
-<header>
-        <h1>Intranet</h1>
-    </header>
+<style>
+/* --- HEADER GENERAL --- */
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
 
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fe8828 !important;
+    padding: 12px 20px;
+    margin-bottom: 0;
+}
+
+/* Logo/Brand MontsiTech */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: Arial, sans-serif !important;
+}
+
+.brand-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.brand-link:hover {
+    opacity: 0.8;
+}
+
+.page-title {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: normal;
+    border-left: 3px solid rgba(255,255,255,0.5);
+    padding-left: 15px;
+}
+
+header {
+    margin-bottom: 0;
+}
+</style>
+
+<header class="header-container">
+    <div class="header-inner">
+        <div class="header-left">
+            <a href="index.html" class="brand-link">MontsiTech</a>
+            <h1 class="page-title" id="page-title-header">Intranet</h1>
+        </div>
+    </div>
+</header>
