@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Business - Digitalització</title>
+</head>
+<body class="espai-digitalitzacio">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .contenidor-general {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+        }   
+
+        .titol-contenidor {
+            background-color: #f4ece5;
+            border-left: 5px solid #c78b48;
+            padding: 10px 15px;
+            margin-bottom: 18px;
+            border-radius: 5px;
+        }
+
+        .titol-contenidor h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: #1a1a1a;
+        }
+
+        .dos-columnes {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .columna-esquerra {
+            flex: 1;
+        }
+
+        .columna-dreta {
+            flex: 1;
+            text-align: center;
+        }
+
+        .columna-dreta img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .video-text {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
+        .video-link {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .video-link:hover {
+            text-decoration: underline;
+        }
+
+        .seccio {
+            margin-bottom: 20px;
+        }
+
+        .seccio-titol {
+            background-color: #c7a478;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .seccio-nota {
+            background-color: #c7a478;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .seccio-contingut {
+            background-color: #f9f6f2;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #c78b48;
+        }
+
+        .seccio-contingut ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .seccio-contingut li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            font-size: 0.88rem;
+        }
+
+        .seccio-contingut p {
+            margin: 8px 0;
+            line-height: 1.5;
+            font-size: 0.88rem;
+        }
+
+        .seccio-contingut strong {
+            color: #1a1a1a;
+        }
+
+        .items-temes {
+            background-color: #fff;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .items-temes h4 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: #c78b48;
+        }
+
+        .items-temes ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .items-temes li {
+            margin-bottom: 6px;
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
+        .fletxa {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #0077b6;
+            text-decoration: none;
+            background-color: #ffffff;
+            border: 3px solid #0077b6;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .fletxa:hover {
+            background-color: #0077b6;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .fletxa.esquerra {
+            left: 30px;
+        }
+
+        .fletxa.dreta {
+            right: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .dos-columnes {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+    <div id="header"></div>
+    
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").outerHTML = html;
+
+                document.querySelector(".dropdown-btn")?.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    const menu = event.target.closest(".dropdown").querySelector(".dropdown-menu");
+                    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+                });
+
+                document.addEventListener("click", function() {
+                    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                        menu.style.display = "none";
+                    });
+                });
+
+                document.getElementById('btn-obrir-suggeriments')?.addEventListener('click', () => {
+                    document.getElementById('form-overlay').style.display = 'block';
+                    document.getElementById('popup-suggeriments').style.display = 'block';
+                });
+
+                document.getElementById('btn-obrir-contactes')?.addEventListener('click', () => {
+                    document.getElementById('form-overlay').style.display = 'block';
+                    document.getElementById('popup-contacte').style.display = 'block';
+                });
+            });
+    </script>
+
+    <main>
+        <nav class="breadcrumb">
+            <a href="index.html">Inici</a>
+            <span>›</span>
+            <a href="digitalitzacio.html">Digitalització</a>
+            <span>›</span>
+            <span>WhatsApp Business</span>
+        </nav>
+
+        <div class="contenidor-general">
+            <div class="titol-contenidor">
+                <h2>De WhatsApp a WhatsApp professional. El que t'interessa saber.</h2>
+            </div>
+
+            <div class="dos-columnes">
+                <div class="columna-esquerra">
+                    <div class="seccio">
+                        <div class="seccio-titol">Sabies que...</div>
+                        <div class="seccio-contingut">
+                            <ul>
+                                <li>És possible vincular el teu <strong>telèfon fixe al WhatsApp Business</strong> i tenir ambdues apps al teu terminal vinculades a números diferents.</li>
+                                <li>Whatsapp Business et permetrà crear un perfil de negoci en el qual podràs indicar informació relativa a l'adreça, el correu electrònic, xarxes socials...</li>
+                                <li>Et permetrà disposar d'estadístiques <strong>d'ús de la teva clientela</strong>.</li>
+                                <li>Des de <a href="https://web.whatsapp.com" class="video-link" target="_blank">https://web.whatsapp.com</a> podràs iniciar la teva sessió en fins a 5 dispositius (el terminal mòbil on està instal·lat, ordinadors i tauletes)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="seccio">
+                        <div class="seccio-nota">Pren nota de...</div>
+                        <div class="seccio-contingut">
+                            <ul>
+                                <li>Si et vols comunicar amb la clientela a través de WhatsApp <strong>és recomanable que, per privacitat, sigui primer la persona interessada el que et contacti</strong>.</li>
+                                <li>L'ús de la missatgeria instantània no significa en viar missatges comercials a tots els contactes. És una pràctica que <strong>pot generar rebuig per part de la clientela</strong>.</li>
+                                <li>Per ordenar la teva agenda professional pots utilitzar <strong>paraules clau</strong> quan desis els contactes. T'ajudarà a agilitzar-ne les converses.</li>
+                                <li>Per mitjà de les <strong>etiquetes</strong> o <strong>llistes de difusió</strong> podràs organitzar comunicacions segmentades en funció del perfil de clientela i el seu vincle amb el teu negoci.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="columna-dreta">
+                    <img src="imatges/video_whatsapp_business.png" alt="Tutorial WhatsApp Business">
+                    <div class="video-text">
+                        En aquest tutorial t'expliquem com treure millor rendiment de la missatgeria instantània en el teu negoci. Ho fem mitjançant l'explicació d'una eina de missatgeria, en concret: <strong>el WhatsApp Business</strong>.
+                    </div>
+                    <div class="items-temes">
+                        <h4>Els ítems que abordem són:</h4>
+                        <ul>
+                            <li>Què és WhatsApp Business?</li>
+                            <li>Per a què serveix?</li>
+                            <li>Quines millores et pot aportar?</li>
+                        </ul>
+                        <p style="font-size: 0.85rem; margin-top: 12px; font-style: italic;">
+                            Fes clic sobre la imatge per visualitzar el videotutorial i recorda que s'obrirà al navegador.
+                        </p>
+                        <p style="font-size: 0.85rem; margin: 5px 0 0 0;">
+                            <a href="https://drive.google.com/file/d/1WxcaQXi22hmeSzS-XEt7O-" class="video-link" target="_blank">https://drive.google.com/file/d/1WxcaQXi22hmeSzS-XEt7O-</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="digitalitzacio_opcio2.html" class="fletxa esquerra">&#8592;</a> 
+        <a href="digitalitzacio_opcio4.html" class="fletxa dreta">&#8594;</a>
+    </main>
+
+    <footer>
+        <div id="footer"></div>
+    </footer>
+
+    <script>
+        fetch("footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").outerHTML = html;
+            });
+    </script>
+
+    <div class="form-overlay" id="form-overlay"></div>
+
+    <div class="form-popup" id="popup-suggeriments">
+        <h2>Envia un Suggeriment</h2>
+        <form id="form-sug">
+            <label for="sug-missatge">El teu suggeriment:</label>
+            <textarea id="sug-missatge" rows="5" required></textarea>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-tancar">Tancar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-popup" id="popup-contacte">
+        <h2>Contacta amb Nosaltres</h2>
+        <form id="form-con">
+            <label for="con-nom">Nom:</label>
+            <input type="text" id="con-nom" required>
+            
+            <label for="con-email">Email:</label>
+            <input type="email" id="con-email" required>
+            
+            <label for="con-missatge">Missatge:</label>
+            <textarea id="con-missatge" rows="4" required></textarea>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-tancar">Tancar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('form-overlay');
+        const popupSug = document.getElementById('popup-suggeriments');
+        const popupCon = document.getElementById('popup-contacte');
+
+        function tancarTotsElsPopups() {
+            overlay.style.display = 'none';
+            popupSug.style.display = 'none';
+            popupCon.style.display = 'none';
+        }
+
+        document.querySelectorAll('.btn-tancar').forEach(btn => {
+            btn.addEventListener('click', tancarTotsElsPopups);
+        });
+        overlay.addEventListener('click', tancarTotsElsPopups);
+
+        document.getElementById('form-sug').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const missatge = document.getElementById('sug-missatge').value;
+            alert("El teu suggeriment: \n\n'" + missatge + "'\n\nS'enviaria per correu. Gràcies!");
+            tancarTotsElsPopups();
+            document.getElementById('form-sug').reset();
+        });
+
+        document.getElementById('form-con').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nom = document.getElementById('con-nom').value;
+            const email = document.getElementById('con-email').value;
+            alert("Hola, " + nom + " (" + email + ").\n\nLa teva sol·licitud de contacte s'enviaria per correu. Gràcies!");
+            tancarTotsElsPopups();
+            document.getElementById('form-con').reset();
+        });
+    </script>
+</body>
+</html>

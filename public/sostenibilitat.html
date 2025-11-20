@@ -2,33 +2,55 @@
 <html lang="ca">
 <head>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sostenibilitat - OPT Sprint 1</title>
 </head>
 <body class="espai-sostenibilitat">
-    <header>
-        <h1>Sostenibilitat</h1>
-    </header>
+    
+    <div id="header"></div>
+    <script>
+    fetch("header.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("header").outerHTML = html;
+            document.querySelector(".dropdown-btn")?.addEventListener("click", function(event) {
+                event.stopPropagation();
+                const menu = event.target.closest(".dropdown").querySelector(".dropdown-menu");
+                menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+            });
+            document.addEventListener("click", function() {
+                document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                    menu.style.display = "none";
+                });
+            });
+        });
+    </script>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Inici</a></li>
-            <li><a href="digitalitzacio.html">Digitalització</a></li>
-            <li><a href="sostenibilitat.html">Sostenibilitat</a></li>
-            <li><a href="intranet.html">Intranet</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section>
-            <h2>Apartat de Sostenibilitat</h2>
-            <p>(Contingut pendent)</p>
+    <main style="padding: 10px; max-width: 1200px; margin: 0 auto;">
+        <nav class="breadcrumb">
+            <a href="index.html">Inici</a>
+            <span>›</span>
+            <span>Sostenibilitat</span>
+        </nav>
+        
+        <section style="text-align: center; padding: 40px 20px;">
+            <h2 style="font-size: 2rem; margin-bottom: 15px;">Sostenibilitat i Agenda 2030</h2>
+            <p style="font-size: 1.1rem; color: #666;">Aquesta secció està en desenvolupament.</p>
+            <p style="margin-top: 20px;">Aquí trobaràs informació sobre els ODS, iniciatives municipals i comarcals per a l'acompliment de l'Agenda 2030.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 OPT Sprint 1 - Equip 3</p>
+        <div id="footer"></div>
+        <script>
+        fetch("footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").outerHTML = html;
+            });
+        </script>
     </footer>
 </body>
 </html>

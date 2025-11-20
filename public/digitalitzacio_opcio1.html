@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La missatgeria instantània - Digitalització</title>
+</head>
+<body class="espai-digitalitzacio">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .col-esquerra {
+            flex: 1 1 45%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .col-dreta {
+            flex: 1 1 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .block {
+            background-color: white;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .contenidor-general {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+        }   
+
+        .titol-contenidor {
+            flex-basis: 100%;
+            background-color: #f4ece5;
+            border-left: 5px solid #c78b48;
+            padding: 10px 15px;
+            margin-bottom: 18px;
+            border-radius: 5px;
+        }
+
+        .block img {
+            width: 100%;
+            border-radius: 6px;
+            max-height: 280px;
+            object-fit: contain;
+        }
+
+        .block h2 {
+            color: #1a1a1a;
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .block h3 {
+            color: #000;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .block p {
+            line-height: 1.5;
+            color: #333;
+            margin: 0 0 8px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Bloc del gràfic */
+        .block-esforc {
+            padding: 14px;
+        }
+
+        .titol-esforc {
+            background-color: #c7a478;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        /* Bloc de característiques */
+        .block-caracteristiques {
+            background-color: #f4ece5;
+            border-left: 6px solid #8b4513;
+            border-radius: 6px;
+            padding: 14px;
+        }
+
+        .block-caracteristiques h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .block-caracteristiques h3::before {
+            content: "▶";
+            color: #8b4513;
+            margin-right: 8px;
+            font-size: 0.85rem;
+        }
+
+        .block-caracteristiques ul {
+            margin: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .block-caracteristiques li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+            font-size: 0.88rem;
+        }
+
+        .fletxa {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #0077b6;
+            text-decoration: none;
+            background-color: #ffffff;
+            border: 3px solid #0077b6;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .fletxa:hover {
+            background-color: #0077b6;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .fletxa.esquerra {
+            left: 30px;
+        }
+
+        .fletxa.dreta {
+            right: 30px;
+        }
+
+        @media (max-width: 800px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            .col-esquerra, .col-dreta {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+    
+    <div id="header"></div>
+    
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").outerHTML = html;
+
+                document.querySelector(".dropdown-btn")?.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    const menu = event.target.closest(".dropdown").querySelector(".dropdown-menu");
+                    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+                });
+
+                document.addEventListener("click", function() {
+                    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                        menu.style.display = "none";
+                    });
+                });
+
+                document.getElementById('btn-obrir-suggeriments')?.addEventListener('click', () => {
+                    document.getElementById('form-overlay').style.display = 'block';
+                    document.getElementById('popup-suggeriments').style.display = 'block';
+                });
+
+                document.getElementById('btn-obrir-contactes')?.addEventListener('click', () => {
+                    document.getElementById('form-overlay').style.display = 'block';
+                    document.getElementById('popup-contacte').style.display = 'block';
+                });
+            });
+    </script>
+
+    <main>
+        <nav class="breadcrumb">
+            <a href="index.html">Inici</a>
+            <span>›</span>
+            <a href="digitalitzacio.html">Digitalització</a>
+            <span>›</span>
+            <span>La missatgeria instantània</span>
+        </nav>
+
+        <div class="contenidor-general">
+            <div class="flex-container">
+                <div class="titol-contenidor">
+                    <h2>La missatgeria instantània</h2>
+                </div>
+
+                <div class="col-esquerra">
+                    <div class="block">
+                        <p>Les aplicacions de missatgeria instantània com Whatsapp o Telegram permeten intercanviar informació a temps real de diferents tipus d'arxius, ja siguin textos, imatges, vídeos, missatges de veu o fins i tot fer videoconferències.</p>
+                        <p>Sabies que són eines apropiades per fidelitzar la clientela?</p>
+                    </div>
+
+                    <div class="block">
+                        <img src="imatges/Persones_telefons.png" alt="Persones amb telèfons">
+                    </div>
+                </div>
+
+                <div class="col-dreta">
+                    <div class="block block-esforc">
+                        <div class="titol-esforc">Quin esforç t'implica?</div>
+                        <img src="imatges/Grafic2.png" alt="Gràfic d'inversió, temps i complexitat">
+                    </div>
+
+                    <div class="block block-caracteristiques">
+                        <h3>Principals característiques</h3>
+                        <ul>
+                            <li><b>La inversió és baixa:</b> Les aplicacions de missatgeria instantània tenen un cost econòmic molt baix; WhatsApp i Telegram són gratuïtes.</li>
+                            <li><b>El temps de dedicació és mitjà-baix:</b> La missatgeria instantània no presenta massa dificultats tècniques, la qual cosa facilita molt el seu ús.</li>
+                            <li><b>La dificultat tècnica és baixa:</b> La major part d'opcions que ofereix no presenten massa dificultat. Un cop plantejada una estratègia, el seu desenvolupament és senzill.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="" class="fletxa esquerra">&#8592;</a> 
+        <a href="digitalitzacio_opcio2.html" class="fletxa dreta">&#8594;</a>
+    </main>
+
+    <footer>
+        <div id="footer"></div>
+    </footer>
+
+    <script>
+        fetch("footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").outerHTML = html;
+            });
+    </script>
+
+    <div class="form-overlay" id="form-overlay"></div>
+
+    <div class="form-popup" id="popup-suggeriments">
+        <h2>Envia un Suggeriment</h2>
+        <form id="form-sug">
+            <label for="sug-missatge">El teu suggeriment:</label>
+            <textarea id="sug-missatge" rows="5" required></textarea>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-tancar">Tancar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-popup" id="popup-contacte">
+        <h2>Contacta amb Nosaltres</h2>
+        <form id="form-con">
+            <label for="con-nom">Nom:</label>
+            <input type="text" id="con-nom" required>
+            
+            <label for="con-email">Email:</label>
+            <input type="email" id="con-email" required>
+            
+            <label for="con-missatge">Missatge:</label>
+            <textarea id="con-missatge" rows="4" required></textarea>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-tancar">Tancar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('form-overlay');
+        const popupSug = document.getElementById('popup-suggeriments');
+        const popupCon = document.getElementById('popup-contacte');
+
+        function tancarTotsElsPopups() {
+            overlay.style.display = 'none';
+            popupSug.style.display = 'none';
+            popupCon.style.display = 'none';
+        }
+
+        document.querySelectorAll('.btn-tancar').forEach(btn => {
+            btn.addEventListener('click', tancarTotsElsPopups);
+        });
+        overlay.addEventListener('click', tancarTotsElsPopups);
+
+        document.getElementById('form-sug').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const missatge = document.getElementById('sug-missatge').value;
+            alert("El teu suggeriment: \n\n'" + missatge + "'\n\nS'enviaria per correu. Gràcies!");
+            tancarTotsElsPopups();
+            document.getElementById('form-sug').reset();
+        });
+
+        document.getElementById('form-con').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nom = document.getElementById('con-nom').value;
+            const email = document.getElementById('con-email').value;
+            alert("Hola, " + nom + " (" + email + ").\n\nLa teva sol·licitud de contacte s'enviaria per correu. Gràcies!");
+            tancarTotsElsPopups();
+            document.getElementById('form-con').reset();
+        });
+    </script>
+</body>
+</html>

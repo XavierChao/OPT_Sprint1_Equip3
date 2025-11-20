@@ -1,34 +1,337 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digitalització - OPT Sprint 1</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .contenido {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .col-esquerra, .col-dreta {
+            flex: 1;
+            min-width: 45%;
+        }
+
+        .titol-principal {
+            background-color: #f4ece5;
+            border-left: 5px solid #c78b48;
+            padding: 10px 15px;
+            margin-bottom: 18px;
+            border-radius: 5px;
+        }
+
+        .titol-principal h1 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: #1a1a1a;
+        }
+
+        .block {
+            background-color: #ffffff;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+
+        .block h2 {
+            color: #1a1a1a;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            border-left: 4px solid #c78b48;
+            padding-left: 8px;
+        }
+
+        .block p {
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .block-caracteristiques {
+            padding: 14px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .block-caracteristiques h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .block-caracteristiques h3::before {
+            content: "▶";
+            margin-right: 8px;
+            font-size: 0.85rem;
+        }
+
+        .block-caracteristiques.avantatges {
+            background-color: #e9f8ea;
+            border-left: 6px solid #028a1f;
+        }
+
+        .block-caracteristiques.avantatges h3 {
+            color: #028a1f;
+        }
+
+        .block-caracteristiques.reptes {
+            background-color: #fdecec;
+            border-left: 6px solid #c00;
+        }
+
+        .block-caracteristiques.reptes h3 {
+            color: #c00;
+        }
+
+        .block-caracteristiques ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .block-caracteristiques li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+            font-size: 0.88rem;
+        }
+
+        .block-kit {
+            background-color: #eef8ff;
+            padding: 14px;
+            border-radius: 6px;
+        }
+
+        .titol-kit {
+            background-color: #0077b6;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .block-kit p {
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
+        .block img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            max-height: 160px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            
+            .col-esquerra, .col-dreta {
+                min-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body class="espai-digitalitzacio">
-    <header>
-        <h1>Digitalització</h1>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Inici</a></li>
-            <li><a href="digitalitzacio.html">Digitalització</a></li>
-            <li><a href="sostenibilitat.html">Sostenibilitat</a></li>
-            <li><a href="intranet.html">Intranet</a></li>
-        </ul>
-    </nav>
+    
+    <div id="header"></div>
 
     <main>
-        <section>
-            <h2>Apartat de Digitalització</h2>
-            <p>(Contingut pendent)</p>
-        </section>
+        <nav class="breadcrumb">
+            <a href="index.html">Inici</a>
+            <span>›</span>
+            <span>Digitalització</span>
+        </nav>
+
+        <div class="contenido">
+            <div class="titol-principal">
+                <h1>L'Espai de la Digitalització per a PIMEs</h1>
+            </div>
+
+            <div class="flex-container">
+                <div class="col-esquerra">
+                    <div class="block">
+                        <h2>Què és la Digitalització?</h2>
+                        <p>La digitalització és el procés d'utilitzar tecnologies digitals per canviar un model de negoci i crear noves oportunitats d'ingressos i valor. Per a una PIME, no és només tenir una pàgina web, sinó integrar eines digitals a tots els processos de l'empresa.</p>
+                    </div>
+
+                    <div class="block-caracteristiques avantatges">
+                        <h3>Principals Avantatges</h3>
+                        <ul>
+                            <li><b>Major Eficiència:</b> Automatitzar tasques redueix errors i costos.</li>
+                            <li><b>Nous Clients:</b> Obre nous mercats a través de l'e-commerce i el màrqueting digital.</li>
+                            <li><b>Millor Presa de Decisions:</b> Les dades et permeten entendre millor els teus clients.</li>
+                            <li><b>Flexibilitat:</b> Facilita el teletreball i adapta't ràpidament als canvis.</li>
+                        </ul>
+                    </div>
+
+                    <div class="block">
+                        <img src="imatges/esquema_PIME.png" alt="Esquema d'una PIME digitalitzada" style="max-height: 140px; object-fit: contain;">
+                    </div>
+                </div>
+
+                <div class="col-dreta">
+                    <div class="block-caracteristiques reptes">
+                        <h3>Reptes Comuns</h3>
+                        <ul>
+                            <li><b>Cost Inicial:</b> La inversió en software o hardware pot semblar elevada.</li>
+                            <li><b>Formació:</b> Cal que l'equip aprengui a utilitzar les noves eines.</li>
+                            <li><b>Resistència al Canvi:</b> Superar la inèrcia de "sempre s'ha fet així".</li>
+                            <li><b>Ciberseguretat:</b> Protegir les dades de l'empresa i dels clients és crucial.</li>
+                        </ul>
+                    </div>
+
+                    <div class="block-kit">
+                        <div class="titol-kit">El Kit Digital</div>
+                        <p>Per ajudar a superar el repte del cost inicial, el Govern ha llançat el programa <strong>Kit Digital</strong>, finançat pels fons NextGenerationEU.</p>
+                        <p style="margin-top: 8px;">És una ajuda econòmica ("bo digital") que permet a les PIMEs i autònoms contractar solucions digitals específiques:</p>
+                        <img src="imatges/logo_kit.png" alt="Logo del Kit Digital" style="width: 100%; max-width: 200px; display: block; margin: 10px auto 0;">
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 OPT Sprint 1 - Equip 3</p>
+        <div id="footer"></div>
     </footer>
+
+    <div class="form-overlay" id="form-overlay"></div>
+
+    <div class="form-popup" id="popup-suggeriments">
+        <h2>Envia un Suggeriment</h2>
+        <form id="form-sug">
+            <label for="sug-missatge">El teu suggeriment:</label>
+            <textarea id="sug-missatge" rows="5" required></textarea>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-tancar">Tancar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-popup" id="popup-contacte">
+        <h2>Contacta amb Nosaltres</h2>
+        <form id="form-con">
+            <label for="con-nom">Nom:</label>
+            <input type="text" id="con-nom" required>
+            
+            <label for="con-email">Email:</label>
+            <input type="email" id="con-email" required>
+            
+            <label for="con-missatge">Missatge:</label>
+            <textarea id="con-missatge" rows="4" required></textarea>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-tancar">Tancar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").outerHTML = html;
+
+                document.querySelector(".dropdown-btn")?.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    const menu = event.target.closest(".dropdown").querySelector(".dropdown-menu");
+                    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+                });
+
+                document.addEventListener("click", function() {
+                    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                        menu.style.display = "none";
+                    });
+                });
+
+                document.getElementById('btn-obrir-suggeriments')?.addEventListener('click', () => {
+                    document.getElementById('form-overlay').style.display = 'block';
+                    document.getElementById('popup-suggeriments').style.display = 'block';
+                });
+
+                document.getElementById('btn-obrir-contactes')?.addEventListener('click', () => {
+                    document.getElementById('form-overlay').style.display = 'block';
+                    document.getElementById('popup-contacte').style.display = 'block';
+                });
+            });
+
+        fetch("footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").outerHTML = html;
+            });
+
+        const overlay = document.getElementById('form-overlay');
+        const popupSug = document.getElementById('popup-suggeriments');
+        const popupCon = document.getElementById('popup-contacte');
+
+        function tancarTotsElsPopups() {
+            overlay.style.display = 'none';
+            popupSug.style.display = 'none';
+            popupCon.style.display = 'none';
+        }
+
+        document.querySelectorAll('.btn-tancar').forEach(btn => {
+            btn.addEventListener('click', tancarTotsElsPopups);
+        });
+        overlay.addEventListener('click', tancarTotsElsPopups);
+
+        document.getElementById('form-sug').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const missatge = document.getElementById('sug-missatge').value;
+            alert("El teu suggeriment: \n\n'" + missatge + "'\n\nS'enviaria per correu. Gràcies!");
+            tancarTotsElsPopups();
+            document.getElementById('form-sug').reset();
+        });
+
+        document.getElementById('form-con').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nom = document.getElementById('con-nom').value;
+            const email = document.getElementById('con-email').value;
+            alert("Hola, " + nom + " (" + email + ").\n\nLa teva sol·licitud de contacte s'enviaria per correu. Gràcies!");
+            tancarTotsElsPopups();
+            document.getElementById('form-con').reset();
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple pràctic WhatsApp Business - Digitalització</title>
+</head>
+<body class="espai-digitalitzacio">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .contenidor-general {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+        }   
+
+        .titol-contenidor {
+            background-color: #f4ece5;
+            border-left: 5px solid #c78b48;
+            padding: 10px 15px;
+            margin-bottom: 18px;
+            border-radius: 5px;
+        }
+
+        .titol-contenidor h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: #1a1a1a;
+        }
+
+        .intro-block {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background-color: #f9f6f2;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+
+        .intro-icon {
+            font-size: 3rem;
+            color: #c78b48;
+            flex-shrink: 0;
+        }
+
+        .intro-text {
+            flex: 1;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .dos-columnes-principal {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .columna-elements,
+        .columna-beneficis {
+            background-color: #fff;
+        }
+
+        .seccio-titol {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f4ece5;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .seccio-titol-icon {
+            font-size: 1.8rem;
+        }
+
+        .seccio-titol h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+        }
+
+        .pas {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .pas-numero {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #c78b48;
+            flex-shrink: 0;
+            line-height: 1;
+            width: 50px;
+        }
+
+        .pas-contingut h4 {
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .pas-contingut p {
+            margin: 0;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #444;
+            text-align: justify;
+        }
+
+        .benefici {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 18px;
+            align-items: flex-start;
+        }
+
+        .benefici-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefici-contingut h4 {
+            margin: 0 0 6px 0;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .benefici-contingut p {
+            margin: 0;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        .fletxa {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #0077b6;
+            text-decoration: none;
+            background-color: #ffffff;
+            border: 3px solid #0077b6;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .fletxa:hover {
+            background-color: #0077b6;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .fletxa.esquerra {
+            left: 30px;
+        }
+
+        .fletxa.dreta {
+            right: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .dos-columnes-principal {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+    <div id="header"></div>
+    
+    <script>
+        fetch("header.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("header").outerHTML = html;
+
+                document.querySelector(".dropdown-btn")?.addEventListener("click", function(event) {
+                    event.stopPropagation();
+                    const menu = event.target.closest(".dropdown").querySelector(".dropdown-menu");
+                    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+                });
+
+                document.addEventListener("click", function() {
+                    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                        menu.style.display = "none";
+                    });
+                });
+
+                document.getElementById('btn-obrir-suggeriments')?.addEventListener('click', () => {
+                    document.getElementById('form-overlay').style.display = 'block';
+                    document.getElementById('popup-suggeriments').style.display = 'block';
+                });
+
+                document.getElementById('btn-obrir-contactes')?.addEventListener('click', () => {
+                    document.getElementById('form-overlay').style.display = 'block';
+                    document.getElementById('popup-contacte').style.display = 'block';
+                });
+            });
+    </script>
+
+    <main>
+        <nav class="breadcrumb">
+            <a href="index.html">Inici</a>
+            <span>›</span>
+            <a href="digitalitzacio.html">Digitalització</a>
+            <span>›</span>
+            <span>Exemple pràctic WhatsApp</span>
+        </nav>
+
+        <div class="contenidor-general">
+            <div class="titol-contenidor">
+                <h2>Exemple pràctic. Com portar a terme una campanya de Whatsapp Business.</h2>
+            </div>
+
+            <div class="intro-block">
+                <div class="intro-icon">🏪</div>
+                <div class="intro-text">
+                    Una xarcuteria-carnisseria d'Amposta vol oferir un servei molt més personalitzat a la seva clientela que permeti resoldre dubtes, facilitar la compra, generar valor al voltant dels seus elaborats càrnics i mantenir la clientela contínuament informada de qualsevol aspecte important.
+                </div>
+            </div>
+
+            <div class="dos-columnes-principal">
+                <div class="columna-elements">
+                    <div class="seccio-titol">
+                        <span class="seccio-titol-icon">⚙️</span>
+                        <h3>Quins elements cal preparar?</h3>
+                    </div>
+
+                    <div class="pas">
+                        <div class="pas-numero">1</div>
+                        <div class="pas-contingut">
+                            <h4>Creació de perfil del negoci a Whatsapp:</h4>
+                            <p>inclou informació important per a la teva clientela (adreça, horari d'atenció, lloc web, xarxes socials i possibilitat d'entrega a domicili o no).</p>
+                        </div>
+                    </div>
+
+                    <div class="pas">
+                        <div class="pas-numero">2</div>
+                        <div class="pas-contingut">
+                            <h4>Organització de l'agenda:</h4>
+                            <p>cal etiquetar els contactes de WhatsApp amb paraules clau que permetin enviar missatges personalitzats a cada tipus de persona consumidora. Prèviament, necessitaràs conèixer quin és el comportament de la teva clientela i indicar que desín el teu número de telèfon al seu terminal per acompliment de RGPD.</p>
+                        </div>
+                    </div>
+
+                    <div class="pas">
+                        <div class="pas-numero">3</div>
+                        <div class="pas-contingut">
+                            <h4>Automatització de missatges:</h4>
+                            <p>programa el contingut del missatge a enviar fora de l'horari comercial, o en aquell horari que indiquis. Així, quan no tinguis disponibilitat per respondre, WhatsApp ho farà automàticament.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="columna-beneficis">
+                    <div class="seccio-titol">
+                        <span class="seccio-titol-icon">📊</span>
+                        <h3>Quins beneficis et pot suposar?</h3>
+                    </div>
+
+                    <div class="benefici">
+                        <div class="benefici-icon">💻</div>
+                        <div class="benefici-contingut">
+                            <h4>Personalitza el servei:</h4>
+                            <p>amb aquesta nova iniciativa, la xarcuteria-carnisseria millorarà el servei cap a la seva clientela.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefici">
+                        <div class="benefici-icon">👥</div>
+                        <div class="benefici-contingut">
+                            <h4>Incrementa les vendes:</h4>
+                            <p>l'ús de WhatsApp pot ajudar a donar conèixer i posar en valor els teus productes de valor afegit, els elaborats casolans que singularitzen el teu negoci.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefici">
+                        <div class="benefici-icon">⏰</div>
+                        <div class="benefici-contingut">
+                            <h4>Fidelitza la clientela:</h4>
+                            <p>amb la introducció d'aquest servei, la xarcuteria-carnisseria estarà més present al dia a dia de la clientela, sense necessitat que aquesta s'hi personi sempre físicament al local.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="digitalitzacio_opcio3.html" class="fletxa esquerra">&#8592;</a> 
+        <a href="següent.html" class="fletxa dreta">&#8594;</a>
+    </main>
+
+    <footer>
+        <div id="footer"></div>
+    </footer>
+
+    <script>
+        fetch("footer.html")
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("footer").outerHTML = html;
+            });
+    </script>
+
+    <div class="form-overlay" id="form-overlay"></div>
+
+    <div class="form-popup" id="popup-suggeriments">
+        <h2>Envia un Suggeriment</h2>
+        <form id="form-sug">
+            <label for="sug-missatge">El teu suggeriment:</label>
+            <textarea id="sug-missatge" rows="5" required></textarea>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-tancar">Tancar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-popup" id="popup-contacte">
+        <h2>Contacta amb Nosaltres</h2>
+        <form id="form-con">
+            <label for="con-nom">Nom:</label>
+            <input type="text" id="con-nom" required>
+            
+            <label for="con-email">Email:</label>
+            <input type="email" id="con-email" required>
+            
+            <label for="con-missatge">Missatge:</label>
+            <textarea id="con-missatge" rows="4" required></textarea>
+            
+            <div class="form-actions">
+                <button type="button" class="btn-tancar">Tancar</button>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('form-overlay');
+        const popupSug = document.getElementById('popup-suggeriments');
+        const popupCon = document.getElementById('popup-contacte');
+
+        function tancarTotsElsPopups() {
+            overlay.style.display = 'none';
+            popupSug.style.display = 'none';
+            popupCon.style.display = 'none';
+        }
+
+        document.querySelectorAll('.btn-tancar').forEach(btn => {
+            btn.addEventListener('click', tancarTotsElsPopups);
+        });
+        overlay.addEventListener('click', tancarTotsElsPopups);
+
+        document.getElementById('form-sug').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const missatge = document.getElementById('sug-missatge').value;
+            alert("El teu suggeriment: \n\n'" + missatge + "'\n\nS'enviaria per correu. Gràcies!");
+            tancarTotsElsPopups();
+            document.getElementById('form-sug').reset();
+        });
+
+        document.getElementById('form-con').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nom = document.getElementById('con-nom').value;
+            const email = document.getElementById('con-email').value;
+            alert("Hola, " + nom + " (" + email + ").\n\nLa teva sol·licitud de contacte s'enviaria per correu. Gràcies!");
+            tancarTotsElsPopups();
+            document.getElementById('form-con').reset();
+        });
+    </script>
+</body>
+</html>
